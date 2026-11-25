@@ -1,0 +1,1 @@
+# novamineria-miniapp
