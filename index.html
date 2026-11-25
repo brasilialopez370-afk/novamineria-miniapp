@@ -110,7 +110,9 @@ async function authenticateTelegram(){
  const profileBox=document.getElementById('telegram-profile');
  const tg=window.Telegram&&window.Telegram.WebApp;
  if(!tg||!tg.initData){
-   status.textContent='Para registrarte, abre NovaMinería desde el botón de nuestro bot de Telegram.';
+   const entry='<div style="margin-top:12px"><p class="muted">Puedes entrar desde Telegram para verificar tu identidad automáticamente.</p><a href="https://t.me/novamineriacrypto?start=miniapp" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,#d8b56a,#b88b3d);color:#172016;font-weight:900;padding:14px;border-radius:11px">✈️ Abrir NovaMinería en Telegram</a></div>';
+   status.innerHTML='Esta página está fuera de Telegram. Para iniciar sesión de forma segura, abre nuestro bot.'+entry;
+   if(homeStatus)homeStatus.innerHTML='🔐 Inicia sesión con Telegram para acceder a tu perfil y puntos.'+entry;
    return;
  }
  tg.ready(); tg.expand();
