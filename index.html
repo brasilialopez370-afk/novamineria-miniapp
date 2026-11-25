@@ -13,7 +13,7 @@ header{display:none}
 .logo{font-size:23px;font-weight:900;letter-spacing:1.8px;color:var(--gold)}.sub{color:#b5c4b8;font-size:10px;margin-top:6px;letter-spacing:1.3px}
 main{padding:18px;max-width:680px;margin:auto;min-height:72vh}h2{font-size:19px;margin:24px 0 13px}.welcome{font-size:24px;font-weight:800;margin:8px 0 5px}
 .muted{color:var(--muted);font-size:13px;line-height:1.55}.card{background:linear-gradient(145deg,rgba(20,39,30,.98),rgba(13,27,21,.98));border:1px solid var(--line);border-radius:17px;padding:17px;margin-bottom:13px;box-shadow:0 12px 28px #0003}
-.hero{width:calc(100% + 36px);aspect-ratio:900/492;min-height:0;border-radius:0 0 20px 20px;overflow:hidden;position:relative;margin:-18px -18px 20px;background:url('./nova-cover.jpg') center/100% 100% no-repeat;border:0;border-bottom:1px solid #8f713d;display:block;padding:0;box-shadow:0 12px 30px #0007}.hero:after{content:'';position:absolute;right:7%;bottom:8%;width:39%;height:10%;border-radius:8px;background:linear-gradient(90deg,rgba(5,9,12,.92),rgba(5,9,12,.98));filter:blur(5px)}.hero>div{display:none}
+.global-cover{display:block;width:100%;aspect-ratio:900/492;min-height:0;background:url('./nova-cover.jpg') center/100% 100% no-repeat;border:0;border-bottom:1px solid #8f713d;margin:0;position:relative;z-index:1}.hero{display:none}
 .hero h1{font-size:25px;line-height:1.12;margin:0 0 8px;max-width:330px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--gold);font-weight:800;margin-bottom:9px}
 .points{font-size:36px;font-weight:900;color:var(--gold);margin:9px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .stat{background:var(--panel2);padding:14px;border-radius:13px;border:1px solid #304c3c}.stat strong{display:block;font-size:23px;color:var(--gold);margin-top:7px}
@@ -29,7 +29,7 @@ nav button:active{transform:scale(.96)}
 @media(min-width:600px){nav{border:1px solid rgba(216,181,106,.22);border-radius:18px;margin:0 auto 12px;padding:10px 12px}nav button{font-size:11px}}.notice{font-size:11px;color:#84988a;text-align:center;padding:18px;line-height:1.6}
 .mining-photo{width:100%;height:145px;object-fit:cover;border-radius:14px;border:1px solid #355342;margin:5px 0 13px;display:block}
 .tag{display:inline-block;border:1px solid #56704f;color:#c8d7bd;border-radius:30px;padding:6px 10px;font-size:10px;letter-spacing:1px}
-@media(min-width:600px){.hero{width:calc(100% + 36px);aspect-ratio:900/492}.hero h1{font-size:31px}}
+@media(min-width:600px){.global-cover{aspect-ratio:900/492}.hero h1{font-size:31px}}
 
 .rank-period{display:flex;justify-content:space-between;align-items:center;color:var(--gold);font-size:10px;font-weight:900;letter-spacing:1.5px;margin:18px 2px 12px}
 .podium{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:8px;align-items:end;margin:0 0 16px}
@@ -45,8 +45,9 @@ nav button:active{transform:scale(.96)}
 </head>
 <body>
 <header><div class="logo">✦ NOVAMINERÍA</div><div class="sub">TU ACTIVIDAD ABRE NUEVAS OPORTUNIDADES</div></header>
+<div class="global-cover" role="img" aria-label="Portada NovaMinería: minero con casco dorado, monedas Bitcoin y tecnología de minería"></div>
 <main>
-<section id="inicio" class="section active"><div class="hero" role="img" aria-label="Portada NovaMinería: minero con casco dorado, monedas Bitcoin y tecnología de minería"></div><div class="welcome">Bienvenido a NovaMinería</div><p class="muted">Tu espacio de misiones, referidos, NovaPoints y recompensas.</p><div class="menu" style="margin:14px 0 18px"><button onclick="show('misiones')"><span>⛏️</span>Entrar a misiones</button><button onclick="show('referidos')"><span>🔗</span>Invitar amigos</button></div>
+<section id="inicio" class="section active"><div class="welcome">Bienvenido a NovaMinería</div><p class="muted">Tu espacio de misiones, referidos, NovaPoints y recompensas.</p><div class="menu" style="margin:14px 0 18px"><button onclick="show('misiones')"><span>⛏️</span>Entrar a misiones</button><button onclick="show('referidos')"><span>🔗</span>Invitar amigos</button></div>
 <div class="card" style="padding:12px 15px"><div id="telegram-home-status" class="muted">🔐 Preparando identificación segura de Telegram…</div></div>
 <div class="card"><div class="muted">MIS NOVAPOINTS</div><div class="points" id="home-points">— NP</div><div class="muted">Saldo confirmado de NovaPoints en tu cuenta.</div><button onclick="show('saldo')">Ver movimientos de NovaPoints</button></div>
 <div class="stats"><div class="stat"><div class="muted">Referidos activos</div><strong id="home-referrals">—</strong></div><div class="stat"><div class="muted">NovaPoints esta semana</div><strong id="home-weekly">—</strong></div></div>
