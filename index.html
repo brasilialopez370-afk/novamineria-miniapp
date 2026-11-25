@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d19">
+<title>NovaMinería</title>
+<style>
+:root{--bg:#080d19;--panel:#121d30;--panel2:#17253c;--line:#2b3c58;--gold:#f4c65c;--muted:#9caac0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f4f6fb;font-family:Arial,sans-serif}
+header{padding:23px 19px;background:linear-gradient(135deg,#111d35,#172b4b);border-bottom:1px solid var(--line)}
+.logo{font-size:23px;font-weight:900;letter-spacing:1px;color:var(--gold)}.sub{color:#aab6c9;font-size:11px;margin-top:6px;letter-spacing:.5px}
+main{padding:18px;max-width:650px;margin:auto;min-height:72vh}h2{font-size:19px;margin:22px 0 12px}.welcome{font-size:22px;font-weight:bold;margin:8px 0 5px}
+.muted{color:var(--muted);font-size:13px;line-height:1.5}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px;margin-bottom:13px}
+.points{font-size:36px;font-weight:900;color:var(--gold);margin:9px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:var(--panel2);padding:14px;border-radius:12px}.stat strong{display:block;font-size:23px;color:var(--gold);margin-top:7px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:10px}button{border:0;border-radius:10px;padding:12px 15px;background:var(--gold);color:#101827;font-weight:bold;cursor:pointer}
+.menu button{background:var(--panel2);color:white;border:1px solid var(--line);text-align:left;padding:17px}.menu button span{display:block;font-size:21px;margin-bottom:8px}
+.section{display:none}.section.active{display:block}.item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}
+.reward{color:var(--gold);font-weight:bold;white-space:nowrap}nav{position:sticky;bottom:0;background:#101a2b;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:10px 3px;max-width:650px;margin:auto}
+nav button{background:transparent;color:#aebbd0;padding:8px 5px;font-size:12px;line-height:1.5}nav button.active{color:var(--gold)}.notice{font-size:11px;color:#8492a9;text-align:center;padding:18px;line-height:1.6}
+</style>
+</head>
+<body>
+<header><div class="logo">✦ NOVAMINERÍA</div><div class="sub">TU ACTIVIDAD ABRE NUEVAS OPORTUNIDADES</div></header>
+<main>
+<section id="inicio" class="section active"><div class="welcome">¡Bienvenido a NovaMinería!</div><p class="muted">Tu centro de misiones, actividad y recompensas.</p>
+<div class="card"><div class="muted">MIS PUNTOS</div><div class="points">0 pts</div><div class="muted">Los puntos reconocen tu actividad real.</div></div>
+<div class="stats"><div class="stat"><div class="muted">Referidos activos</div><strong>0</strong></div><div class="stat"><div class="muted">Compras confirmadas</div><strong>0</strong></div></div>
+<h2>Explora NovaMinería</h2><div class="menu"><button onclick="show('misiones')"><span>🎯</span>Misiones</button><button onclick="show('referidos')"><span>👥</span>Mis referidos</button><button onclick="show('ranking')"><span>🏆</span>Ranking semanal</button><button onclick="show('recompensas')"><span>🎁</span>Recompensas</button></div></section>
+<section id="misiones" class="section"><h2>🎯 Misiones</h2><div class="card">
+<div class="item"><div><strong>Conoce NovaMinería</strong><div class="muted">Explora nuestra plataforma.</div></div><span class="reward">+10 pts</span></div>
+<div class="item"><div><strong>Participa en la comunidad</strong><div class="muted">Mantente activo en el canal.</div></div><span class="reward">+20 pts</span></div>
+<div class="item"><div><strong>Invita un cliente real</strong><div class="muted">Actividad sujeta a verificación.</div></div><span class="reward">Por verificar</span></div></div><p class="muted">Misiones demostrativas. Los puntos reales se habilitarán al conectar el sistema.</p></section>
+<section id="referidos" class="section"><h2>👥 Mis referidos</h2><div class="card"><div class="points">0</div><div class="muted">Referidos activos</div><p class="muted">Invita personas que participen, compren o revendan servicios. No premiamos registros falsos.</p><button onclick="alert('El enlace de invitación se habilitará al conectar Telegram.')">Mi enlace de invitación</button></div></section>
+<section id="ranking" class="section"><h2>🏆 Ranking semanal</h2><div class="card"><div class="item"><strong>🥇 Primer puesto</strong><span class="reward">Pendiente</span></div><div class="item"><strong>🥈 Segundo puesto</strong><span class="reward">Pendiente</span></div><div class="item"><strong>🥉 Tercer puesto</strong><span class="reward">Pendiente</span></div><p class="muted">Clasificación según actividad real y referidos activos.</p></div></section>
+<section id="recompensas" class="section"><h2>🎁 Recompensas</h2><div class="card"><p>Premios para los usuarios más activos.</p><p class="muted">Premios para los primeros puestos y sorteos entre participantes activos, según el fondo disponible.</p></div></section>
+<section id="perfil" class="section"><h2>👤 Mi perfil</h2><div class="card"><p><strong>Usuario de Telegram</strong></p><p class="muted">Tu información aparecerá cuando conectemos el bot.</p><p><strong>Estado:</strong> <span class="reward">Demostración</span></p></div></section>
+</main>
+<nav><button class="active" onclick="show('inicio',this)">⌂<br>Inicio</button><button onclick="show('misiones',this)">◎<br>Misiones</button><button onclick="show('ranking',this)">♛<br>Ranking</button><button onclick="show('perfil',this)">●<br>Perfil</button></nav>
+<div class="notice">NOVAMINERÍA · PROTOTIPO INICIAL<br>Esta versión todavía no registra puntos, usuarios ni pagos reales.</div>
+<script>function show(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active')}</script>
+</body></html>
