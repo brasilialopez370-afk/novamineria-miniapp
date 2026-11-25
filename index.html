@@ -13,7 +13,7 @@ header{display:none}
 .logo{font-size:23px;font-weight:900;letter-spacing:1.8px;color:var(--gold)}.sub{color:#b5c4b8;font-size:10px;margin-top:6px;letter-spacing:1.3px}
 main{padding:18px;max-width:680px;margin:auto;min-height:72vh}h2{font-size:19px;margin:24px 0 13px}.welcome{font-size:24px;font-weight:800;margin:8px 0 5px}
 .muted{color:var(--muted);font-size:13px;line-height:1.55}.card{background:linear-gradient(145deg,rgba(20,39,30,.98),rgba(13,27,21,.98));border:1px solid var(--line);border-radius:17px;padding:17px;margin-bottom:13px;box-shadow:0 12px 28px #0003}
-.global-cover{display:block;width:100%;aspect-ratio:900/492;min-height:0;background:url('./nova-cover.jpg') center/100% 100% no-repeat;border:0;border-bottom:1px solid #8f713d;margin:0;position:relative;z-index:1}.hero{display:none}
+.global-cover{display:block;width:100%;max-width:680px;height:auto;aspect-ratio:auto;object-fit:contain;object-position:center;background:#07120f;border:0;border-bottom:1px solid #8f713d;margin:0 auto;position:relative;z-index:1}.hero{display:none}
 .hero h1{font-size:25px;line-height:1.12;margin:0 0 8px;max-width:330px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--gold);font-weight:800;margin-bottom:9px}
 .points{font-size:36px;font-weight:900;color:var(--gold);margin:9px 0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .stat{background:var(--panel2);padding:14px;border-radius:13px;border:1px solid #304c3c}.stat strong{display:block;font-size:23px;color:var(--gold);margin-top:7px}
@@ -29,7 +29,7 @@ nav button:active{transform:scale(.96)}
 @media(min-width:600px){nav{border:1px solid rgba(216,181,106,.22);border-radius:18px;margin:0 auto 12px;padding:10px 12px}nav button{font-size:11px}}.notice{font-size:11px;color:#84988a;text-align:center;padding:18px;line-height:1.6}
 .mining-photo{width:100%;height:145px;object-fit:cover;border-radius:14px;border:1px solid #355342;margin:5px 0 13px;display:block}
 .tag{display:inline-block;border:1px solid #56704f;color:#c8d7bd;border-radius:30px;padding:6px 10px;font-size:10px;letter-spacing:1px}
-@media(min-width:600px){.global-cover{aspect-ratio:900/492}.hero h1{font-size:31px}}
+@media(min-width:600px){.hero h1{font-size:31px}}
 
 .rank-period{display:flex;justify-content:space-between;align-items:center;color:var(--gold);font-size:10px;font-weight:900;letter-spacing:1.5px;margin:18px 2px 12px}
 .podium{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:8px;align-items:end;margin:0 0 16px}
@@ -45,7 +45,7 @@ nav button:active{transform:scale(.96)}
 </head>
 <body>
 <header><div class="logo">✦ NOVAMINERÍA</div><div class="sub">TU ACTIVIDAD ABRE NUEVAS OPORTUNIDADES</div></header>
-<div class="global-cover" role="img" aria-label="Portada NovaMinería: minero con casco dorado, monedas Bitcoin y tecnología de minería"></div>
+<img class="global-cover" src="./nova-cover.jpg" alt="Portada NovaMinería: minero con casco dorado, monedas Bitcoin y tecnología de minería" loading="eager" fetchpriority="high" decoding="async">
 <main>
 <section id="inicio" class="section active"><div class="welcome">Bienvenido a NovaMinería</div><p class="muted">Tu espacio de misiones, referidos, NovaPoints y recompensas.</p><div class="menu" style="margin:14px 0 18px"><button onclick="show('misiones')"><span>⛏️</span>Entrar a misiones</button><button onclick="show('referidos')"><span>🔗</span>Invitar amigos</button></div>
 <div class="card" style="padding:12px 15px"><div id="telegram-home-status" class="muted">🔐 Preparando identificación segura de Telegram…</div></div>
