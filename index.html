@@ -79,7 +79,7 @@ nav button:active{transform:scale(.96)}
 <div class="card rank-info"><strong>¿Cómo se ordena el ranking?</strong><p class="muted">La clasificación se calcula con los NovaPoints obtenidos por misiones completadas, referidos activos, compras confirmadas y actividad de reventa validada. Solo cuentan acciones verificadas.</p><p class="muted">El ranking se renueva cada semana. Los NovaPoints históricos de tu cuenta se conservan; la clasificación semanal cuenta únicamente los NovaPoints de la semana actual.</p></div>
 </section>
 <section id="recompensas" class="section"><h2>🎁 Recompensas</h2><div class="card"><p>Premios para los usuarios más activos.</p><p class="muted">Premios para los primeros puestos y sorteos entre participantes activos, según el fondo disponible.</p></div></section>
-<section id="perfil" class="section"><h2>👤 Mi perfil</h2><div class="card"><div id="telegram-auth-status" class="muted">Verificando tu cuenta de Telegram…</div><button onclick="authenticateTelegram()" style="margin-top:12px">↻ Actualizar perfil</button><div id="telegram-profile" style="display:none;margin-top:15px"><div style="display:flex;align-items:center;gap:13px"><img id="telegram-avatar" alt="Foto de perfil" style="width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid #d8b56a;display:none"><div><strong id="telegram-name" style="font-size:17px"></strong><div id="telegram-username" class="muted"></div></div></div><div class="item" style="margin-top:14px"><strong>ID de Telegram</strong><span id="telegram-id" class="reward"></span></div><p><strong>Estado:</strong> <span class="reward">Cuenta verificada ✓</span></p><p class="muted">Tu cuenta de NovaMinería está vinculada a este ID único de Telegram.</p></div></div></section>
+<section id="perfil" class="section"><h2>👤 Mi perfil</h2><div class="card"><div class="eyebrow">IDENTIDAD Y CUENTA</div><p class="muted">Vincula tu cuenta de Telegram para guardar tu nombre de usuario y asociar tus NovaPoints a tu perfil.</p><button id="telegram-login-button" onclick="authenticateTelegram()" style="width:100%;margin:8px 0 12px;padding:15px;background:linear-gradient(135deg,#d8b56a,#b88b3d);color:#172016;font-size:14px">✈️ Iniciar sesión con Telegram</button><div id="telegram-auth-status" class="muted">Pulsa el botón para verificar tu cuenta.</div><div id="telegram-profile" style="display:none;margin-top:15px"><div style="display:flex;align-items:center;gap:13px"><img id="telegram-avatar" alt="Foto de perfil" style="width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid #d8b56a;display:none"><div><strong id="telegram-name" style="font-size:17px"></strong><div id="telegram-username" class="muted"></div></div></div><div class="item" style="margin-top:14px"><strong>ID de Telegram</strong><span id="telegram-id" class="reward"></span></div><p><strong>Estado:</strong> <span class="reward">Cuenta verificada ✓</span></p><p class="muted">Tu cuenta de NovaMinería está vinculada a este ID único de Telegram.</p></div></div></section>
 
 <section id="admin" class="section">
 <h2>🛡️ Centro de control · Administración</h2>
@@ -120,6 +120,8 @@ async function authenticateTelegram(){
  const status=document.getElementById('telegram-auth-status');
  const homeStatus=document.getElementById('telegram-home-status');
  const profileBox=document.getElementById('telegram-profile');
+ const loginButton=document.getElementById('telegram-login-button');
+ if(loginButton){loginButton.disabled=false;loginButton.textContent='✈️ Iniciar sesión con Telegram';}
  const tg=window.Telegram&&window.Telegram.WebApp;
  if(!tg||!tg.initData){
    const entry='<div style="margin-top:12px"><p class="muted">Puedes entrar desde Telegram para verificar tu identidad automáticamente.</p><a href="https://t.me/novamineriacrypto?start=miniapp" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,#d8b56a,#b88b3d);color:#172016;font-weight:900;padding:14px;border-radius:11px">✈️ Abrir NovaMinería en Telegram</a></div>';
@@ -140,6 +142,10 @@ async function authenticateTelegram(){
    if(!response.ok||!result.ok) throw new Error(result.error||'No se pudo verificar tu cuenta.');
    const p=result.profile;
    window.novaVerifiedProfile=p;
+   // El perfil se guarda de forma persistente en Supabase; esta copia solo recuerda el último nombre mostrado en este dispositivo.
+   try{localStorage.setItem('nova_telegram_username',String(p.username||''));localStorage.setItem('nova_telegram_id',String(p.telegram_id||''));}catch(_){}
+   const loginButton=document.getElementById('telegram-login-button');
+   if(loginButton){loginButton.textContent='✓ Sesión iniciada con Telegram';loginButton.disabled=true;loginButton.style.opacity='.8';}
    document.getElementById('telegram-name').textContent=[p.first_name,p.last_name].filter(Boolean).join(' ');
    document.getElementById('telegram-username').textContent='@'+p.username;
    document.getElementById('telegram-id').textContent=p.telegram_id;
