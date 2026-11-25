@@ -57,9 +57,9 @@ nav button{background:transparent;color:#b5c4b8;padding:8px 5px;font-size:12px;l
 <p class="muted">Los 10 usuarios con mayor actividad verificada de la semana.</p>
 <div class="rank-period"><span>SEMANA EN CURSO</span><span class="tag">TOP 10</span></div>
 <div class="podium">
-<div class="podium-card second"><div class="podium-medal">🥈</div><div class="rank-avatar">2</div><strong>2.º puesto</strong><div class="rank-name">Por definir</div><div class="rank-score">— <small>pts</small></div></div>
-<div class="podium-card first"><div class="podium-medal">👑</div><div class="rank-avatar">1</div><strong>1.er puesto</strong><div class="rank-name">Por definir</div><div class="rank-score">— <small>pts</small></div></div>
-<div class="podium-card third"><div class="podium-medal">🥉</div><div class="rank-avatar">3</div><strong>3.er puesto</strong><div class="rank-name">Por definir</div><div class="rank-score">— <small>pts</small></div></div>
+<div class="podium-card second"><div class="podium-medal">🥈</div><div class="rank-avatar">2</div><strong>2.º puesto</strong><div class="rank-name">Por definir</div><div class="rank-score">— <small>NP</small></div></div>
+<div class="podium-card first"><div class="podium-medal">👑</div><div class="rank-avatar">1</div><strong>1.er puesto</strong><div class="rank-name">Por definir</div><div class="rank-score">— <small>NP</small></div></div>
+<div class="podium-card third"><div class="podium-medal">🥉</div><div class="rank-avatar">3</div><strong>3.er puesto</strong><div class="rank-name">Por definir</div><div class="rank-score">— <small>NP</small></div></div>
 </div>
 <div class="card rank-list-card"><div class="rank-list-heading"><strong>CLASIFICACIÓN GENERAL</strong><span class="muted">Puestos 4 al 10</span></div>
 <div class="rank-row"><span class="rank-number">04</span><div class="rank-user"><strong>4.º puesto</strong><small>Esperando actividad</small></div><span class="rank-points">— NP</span></div>
@@ -170,7 +170,7 @@ function escapeAdmin(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;'
 function renderAdminUsers(){
  const q=(document.getElementById('admin-search').value||'').toLowerCase().replace(/^@/,'');
  const rows=novaAdminUsers.filter(u=>String(u.telegram_id).includes(q)||String(u.username||'').toLowerCase().includes(q));
- document.getElementById('admin-user-list').innerHTML=rows.length?rows.slice(0,100).map(u=>'<div class="item"><div><strong>'+escapeAdmin(u.first_name+' '+(u.last_name||''))+'</strong><div class="muted">@'+escapeAdmin(u.username||'sin_usuario')+' · ID '+escapeAdmin(u.telegram_id)+'</div><div class="muted">'+u.referrals+' referidos · '+u.points+' pts · '+(u.is_premium?'Premium':'Estándar')+'</div></div><span class="tag">'+(u.flags?'REVISAR':'OK')+'</span></div>').join(''):'No hay perfiles que coincidan.';
+ document.getElementById('admin-user-list').innerHTML=rows.length?rows.slice(0,100).map(u=>'<div class="item"><div><strong>'+escapeAdmin(u.first_name+' '+(u.last_name||''))+'</strong><div class="muted">@'+escapeAdmin(u.username||'sin_usuario')+' · ID '+escapeAdmin(u.telegram_id)+'</div><div class="muted">'+u.referrals+' referidos · '+u.points+' NP · '+(u.is_premium?'Premium':'Estándar')+'</div></div><span class="tag">'+(u.flags?'REVISAR':'OK')+'</span></div>').join(''):'No hay perfiles que coincidan.';
 }
 
 async function copyReferral(){
