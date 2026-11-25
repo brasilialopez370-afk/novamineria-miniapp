@@ -39,7 +39,7 @@ nav button{background:transparent;color:#b5c4b8;padding:8px 5px;font-size:12px;l
 <body>
 <header><div class="logo">✦ NOVAMINERÍA</div><div class="sub">TU ACTIVIDAD ABRE NUEVAS OPORTUNIDADES</div></header>
 <main>
-<section id="inicio" class="section active"><div class="hero"><div><div class="eyebrow">TECNOLOGÍA · BLOCKCHAIN · COMUNIDAD</div><h1>Explora el universo de la minería digital</h1><span class="tag">BIENVENIDO A NOVAMINERÍA</span></div></div><div class="welcome">Tu actividad crea oportunidades.</div><p class="muted">Misiones, comunidad y recompensas por participación real.</p>
+<section id="inicio" class="section active"><div class="hero"><div><div class="eyebrow">TECNOLOGÍA · BLOCKCHAIN · COMUNIDAD</div><h1>Explora el universo de la minería digital</h1><span class="tag">BIENVENIDO A NOVAMINERÍA</span></div></div><div class="welcome">Tu actividad crea oportunidades.</div><p class="muted">Misiones, comunidad y recompensas por participación real.</p>\n<div class="card" style="padding:12px 15px"><div id="telegram-home-status" class="muted">🔐 Preparando identificación segura de Telegram…</div></div>
 <div class="card"><div class="muted">MIS PUNTOS</div><div class="points">0 pts</div><div class="muted">Los puntos reconocen tu actividad real.</div></div>
 <div class="stats"><div class="stat"><div class="muted">Referidos activos</div><strong>0</strong></div><div class="stat"><div class="muted">Compras confirmadas</div><strong>0</strong></div></div>
 <h2>El ecosistema NovaMinería</h2><img class="mining-photo" src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=1100&q=85" alt="Tecnología blockchain y criptomonedas" loading="lazy"><div class="menu"><button onclick="show('misiones')"><span>🎯</span>Misiones</button><button onclick="show('referidos')"><span>👥</span>Mis referidos</button><button onclick="show('ranking')"><span>🏆</span>Ranking semanal</button><button onclick="show('recompensas')"><span>🎁</span>Recompensas</button></div></section>
@@ -85,7 +85,7 @@ function generateReferral(){
  message.textContent='Enlace personal generado para tu cuenta verificada.';
 }
 async function authenticateTelegram(){
- const status=document.getElementById('telegram-auth-status');
+ const status=document.getElementById('telegram-auth-status');\n const homeStatus=document.getElementById('telegram-home-status');
  const profileBox=document.getElementById('telegram-profile');
  const tg=window.Telegram&&window.Telegram.WebApp;
  if(!tg||!tg.initData){
@@ -93,7 +93,7 @@ async function authenticateTelegram(){
    return;
  }
  tg.ready(); tg.expand();
- status.textContent='Verificando de forma segura tu identidad con Telegram…';
+ status.textContent='Verificando de forma segura tu identidad con Telegram…';\n if(homeStatus)homeStatus.textContent='🔐 Verificando tu cuenta de Telegram…';
  try{
    const response=await fetch('https://xoxtzurjygichokgjxci.supabase.co/functions/v1/telegram-login',{
      method:'POST',
@@ -112,9 +112,9 @@ async function authenticateTelegram(){
      avatar.src=p.photo_url; avatar.style.display='block';
    }
    status.textContent='Identidad confirmada por Telegram.';
-   profileBox.style.display='block';
+   profileBox.style.display='block';\n   if(homeStatus)homeStatus.textContent='✓ Cuenta verificada: @'+p.username;
  }catch(error){
-   status.textContent=error.message;
+   status.textContent=error.message;\n   if(homeStatus)homeStatus.textContent='⚠️ '+error.message;
  }
 }
 document.addEventListener('DOMContentLoaded',authenticateTelegram);
