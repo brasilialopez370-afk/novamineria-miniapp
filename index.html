@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07120f">\n<meta name="description" content="NovaMinería: misiones, comunidad, actividad y recompensas.">
+<meta name="theme-color" content="#07120f">
+<meta name="description" content="NovaMinería: misiones, comunidad, actividad y recompensas.">
 <title>NovaMinería</title>
 <style>
 :root{--bg:#07120f;--panel:#101f1a;--panel2:#172b23;--line:#294438;--gold:#d8b56a;--muted:#a5b7ac}
@@ -39,14 +40,17 @@ nav button{background:transparent;color:#b5c4b8;padding:8px 5px;font-size:12px;l
 <body>
 <header><div class="logo">✦ NOVAMINERÍA</div><div class="sub">TU ACTIVIDAD ABRE NUEVAS OPORTUNIDADES</div></header>
 <main>
-<section id="inicio" class="section active"><div class="hero"><div><div class="eyebrow">TECNOLOGÍA · BLOCKCHAIN · COMUNIDAD</div><h1>Explora el universo de la minería digital</h1><span class="tag">BIENVENIDO A NOVAMINERÍA</span></div></div><div class="welcome">Tu actividad crea oportunidades.</div><p class="muted">Misiones, comunidad y recompensas por participación real.</p>\n<div class="card" style="padding:12px 15px"><div id="telegram-home-status" class="muted">🔐 Preparando identificación segura de Telegram…</div></div>
-<div class="card"><div class="muted">MIS PUNTOS</div><div class="points">0 pts</div><div class="muted">Los puntos reconocen tu actividad real.</div></div>
-<div class="stats"><div class="stat"><div class="muted">Referidos activos</div><strong>0</strong></div><div class="stat"><div class="muted">Compras confirmadas</div><strong>0</strong></div></div>
-<h2>El ecosistema NovaMinería</h2><img class="mining-photo" src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=1100&q=85" alt="Tecnología blockchain y criptomonedas" loading="lazy"><div class="menu"><button onclick="show('misiones')"><span>🎯</span>Misiones</button><button onclick="show('referidos')"><span>👥</span>Mis referidos</button><button onclick="show('ranking')"><span>🏆</span>Ranking semanal</button><button onclick="show('recompensas')"><span>🎁</span>Recompensas</button></div></section>
+<section id="inicio" class="section active"><div class="hero"><div><div class="eyebrow">TECNOLOGÍA · BLOCKCHAIN · COMUNIDAD</div><h1>Explora el universo de la minería digital</h1><span class="tag">BIENVENIDO A NOVAMINERÍA</span></div></div><div class="welcome">Tu actividad crea oportunidades.</div><p class="muted">Misiones, comunidad y recompensas por participación real.</p>
+<div class="card" style="padding:12px 15px"><div id="telegram-home-status" class="muted">🔐 Preparando identificación segura de Telegram…</div></div>
+<div class="card"><div class="muted">MIS PUNTOS</div><div class="points" id="home-points">— pts</div><div class="muted">Saldo confirmado de tu cuenta.</div><button onclick="show('saldo')">Ver movimientos de puntos</button></div>
+<div class="stats"><div class="stat"><div class="muted">Referidos activos</div><strong id="home-referrals">—</strong></div><div class="stat"><div class="muted">Puntos esta semana</div><strong id="home-weekly">—</strong></div></div>
+<h2>El ecosistema NovaMinería</h2><img class="mining-photo" src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=1100&q=85" alt="Tecnología blockchain y criptomonedas" loading="lazy"><div class="menu"><button onclick="show('misiones')"><span>🎯</span>Misiones</button><button onclick="show('referidos')"><span>👥</span>Mis referidos</button><button onclick="show('ranking')"><span>🏆</span>Ranking semanal</button><button onclick="show('recompensas')"><span>🎁</span>Recompensas</button><button onclick="show('saldo')"><span>💰</span>Mi saldo</button><button onclick="show('soporte')"><span>🛟</span>Soporte</button></div></section>
+<section id="saldo" class="section"><h2>💰 Mi saldo de puntos</h2><div class="card"><div class="muted">SALDO TOTAL CONFIRMADO</div><div class="points" id="balance-total">— pts</div><div class="muted">Puntos de la semana: <strong id="balance-weekly">—</strong></div></div><div class="card"><h3>Movimientos recientes</h3><div id="points-history" class="muted">Cargando movimientos…</div></div><button onclick="loadDashboard()">↻ Actualizar saldo</button></section>
+<section id="soporte" class="section"><h2>🛟 Centro de soporte</h2><div class="card"><p class="muted">Cuéntanos qué problema tienes. Tu solicitud quedará registrada para seguimiento.</p><form id="support-form" onsubmit="submitSupport(event)"><label class="muted" for="support-subject">Asunto</label><input id="support-subject" maxlength="100" minlength="3" required placeholder="Ej. Problema con una misión" style="width:100%;padding:13px;margin:7px 0 14px;border-radius:10px;border:1px solid #45634e;background:#07120f;color:#fff"><label class="muted" for="support-message">Mensaje</label><textarea id="support-message" required minlength="10" maxlength="2000" rows="5" placeholder="Describe lo que ocurrió…" style="width:100%;padding:13px;margin:7px 0 14px;border-radius:10px;border:1px solid #45634e;background:#07120f;color:#fff;resize:vertical"></textarea><button id="support-submit" type="submit">Enviar solicitud</button></form><p id="support-feedback" class="muted" role="status"></p></div><div class="card"><h3>Mis solicitudes</h3><div id="support-list" class="muted">Aún no hay solicitudes.</div></div></section>
 <section id="misiones" class="section"><h2>🎯 Misiones</h2><div class="card">
 <div class="item"><div><strong>Conoce NovaMinería</strong><div class="muted">Explora nuestra plataforma.</div></div><span class="reward">+10 pts</span></div>
 <div class="item"><div><strong>Participa en la comunidad</strong><div class="muted">Mantente activo en el canal.</div></div><span class="reward">+20 pts</span></div>
-<div class="item"><div><strong>Invita un cliente real</strong><div class="muted">Actividad sujeta a verificación.</div></div><span class="reward">Por verificar</span></div></div><p class="muted">Misiones demostrativas. Los puntos reales se habilitarán al conectar el sistema.</p></section>
+<div class="item"><div><strong>Invita un cliente real</strong><div class="muted">Actividad sujeta a verificación.</div></div><span class="reward">Por verificar</span></div></div><p class="muted">Las misiones que requieren comprobación no entregan puntos automáticamente. La validación se activará cuando conectemos cada fuente de actividad.</p></section>
 <section id="referidos" class="section"><h2>👥 Mis referidos</h2><div class="card"><div class="points">0</div><div class="muted">Referidos activos</div><p class="muted">Invita personas que participen, compren o revendan servicios. No premiamos registros falsos.</p><button onclick="generateReferral()">🔗 Generar mi enlace</button><div id="referral-result" style="display:none;margin-top:14px"><div class="muted" style="margin-bottom:7px">TU ENLACE PERSONAL</div><input id="referral-link" readonly style="width:100%;padding:12px;border-radius:10px;border:1px solid #45634e;background:#07120f;color:#f2f4ed;font-size:12px" value=""><button style="margin-top:10px;width:100%" onclick="copyReferral()">Copiar enlace</button></div><p id="referral-message" class="muted" style="margin-top:12px"></p></div></section>
 <section id="ranking" class="section">
 <h2>🏆 Ranking semanal</h2>
@@ -69,12 +73,12 @@ nav button{background:transparent;color:#b5c4b8;padding:8px 5px;font-size:12px;l
 <div class="card rank-info"><strong>¿Cómo se ordena el ranking?</strong><p class="muted">La clasificación se calcula con los puntos obtenidos por misiones completadas, referidos activos, compras confirmadas y actividad de reventa validada. Solo cuentan acciones verificadas.</p><p class="muted">El ranking se renueva cada semana. Los puntos históricos de tu cuenta se conservan; la clasificación semanal cuenta únicamente los puntos de la semana actual.</p></div>
 </section>
 <section id="recompensas" class="section"><h2>🎁 Recompensas</h2><div class="card"><p>Premios para los usuarios más activos.</p><p class="muted">Premios para los primeros puestos y sorteos entre participantes activos, según el fondo disponible.</p></div></section>
-<section id="perfil" class="section"><h2>👤 Mi perfil</h2><div class="card"><div id="telegram-auth-status" class="muted">Verificando tu cuenta de Telegram…</div><div id="telegram-profile" style="display:none;margin-top:15px"><div style="display:flex;align-items:center;gap:13px"><img id="telegram-avatar" alt="Foto de perfil" style="width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid #d8b56a;display:none"><div><strong id="telegram-name" style="font-size:17px"></strong><div id="telegram-username" class="muted"></div></div></div><div class="item" style="margin-top:14px"><strong>ID de Telegram</strong><span id="telegram-id" class="reward"></span></div><p><strong>Estado:</strong> <span class="reward">Cuenta verificada ✓</span></p><p class="muted">Tu cuenta de NovaMinería está vinculada a este ID único de Telegram.</p></div></div></section>
+<section id="perfil" class="section"><h2>👤 Mi perfil</h2><div class="card"><div id="telegram-auth-status" class="muted">Verificando tu cuenta de Telegram…</div><button onclick="authenticateTelegram()" style="margin-top:12px">↻ Actualizar perfil</button><div id="telegram-profile" style="display:none;margin-top:15px"><div style="display:flex;align-items:center;gap:13px"><img id="telegram-avatar" alt="Foto de perfil" style="width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid #d8b56a;display:none"><div><strong id="telegram-name" style="font-size:17px"></strong><div id="telegram-username" class="muted"></div></div></div><div class="item" style="margin-top:14px"><strong>ID de Telegram</strong><span id="telegram-id" class="reward"></span></div><p><strong>Estado:</strong> <span class="reward">Cuenta verificada ✓</span></p><p class="muted">Tu cuenta de NovaMinería está vinculada a este ID único de Telegram.</p></div></div></section>
 </main>
-<nav><button class="active" onclick="show('inicio',this)">⌂<br>Inicio</button><button onclick="show('misiones',this)">◎<br>Misiones</button><button onclick="show('ranking',this)">♛<br>Ranking</button><button onclick="show('perfil',this)">●<br>Perfil</button></nav>
-<div class="notice">NOVAMINERÍA · PROTOTIPO INICIAL<br>Prototipo visual. Todavía no registra puntos, usuarios ni pagos reales.</div>
+<nav><button class="active" onclick="show('inicio',this)">⌂<br>Inicio</button><button onclick="show('misiones',this)">◎<br>Misiones</button><button onclick="show('saldo',this)">◈<br>Saldo</button><button onclick="show('perfil',this)">●<br>Perfil</button><button onclick="show('soporte',this)">?<br>Soporte</button></nav>
+<div class="notice">NOVAMINERÍA · CUENTA VINCULADA A TELEGRAM<br>Los puntos y movimientos se muestran cuando existen registros verificados. No se procesan pagos dentro de esta Mini App.</div>
 <script>
-function show(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active')}
+function show(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');if(id==='saldo'||id==='soporte')loadDashboard()}
 function generateReferral(){
  const message=document.getElementById('referral-message');
  const profile=window.novaVerifiedProfile;
@@ -85,7 +89,8 @@ function generateReferral(){
  message.textContent='Enlace personal generado para tu cuenta verificada.';
 }
 async function authenticateTelegram(){
- const status=document.getElementById('telegram-auth-status');\n const homeStatus=document.getElementById('telegram-home-status');
+ const status=document.getElementById('telegram-auth-status');
+ const homeStatus=document.getElementById('telegram-home-status');
  const profileBox=document.getElementById('telegram-profile');
  const tg=window.Telegram&&window.Telegram.WebApp;
  if(!tg||!tg.initData){
@@ -93,7 +98,8 @@ async function authenticateTelegram(){
    return;
  }
  tg.ready(); tg.expand();
- status.textContent='Verificando de forma segura tu identidad con Telegram…';\n if(homeStatus)homeStatus.textContent='🔐 Verificando tu cuenta de Telegram…';
+ status.textContent='Verificando de forma segura tu identidad con Telegram…';
+ if(homeStatus)homeStatus.textContent='🔐 Verificando tu cuenta de Telegram…';
  try{
    const response=await fetch('https://xoxtzurjygichokgjxci.supabase.co/functions/v1/telegram-login',{
      method:'POST',
@@ -112,9 +118,12 @@ async function authenticateTelegram(){
      avatar.src=p.photo_url; avatar.style.display='block';
    }
    status.textContent='Identidad confirmada por Telegram.';
-   profileBox.style.display='block';\n   if(homeStatus)homeStatus.textContent='✓ Cuenta verificada: @'+p.username;
+   loadDashboard();
+   profileBox.style.display='block';
+   if(homeStatus)homeStatus.textContent='✓ Cuenta verificada: @'+p.username;
  }catch(error){
-   status.textContent=error.message;\n   if(homeStatus)homeStatus.textContent='⚠️ '+error.message;
+   status.textContent=error.message;
+   if(homeStatus)homeStatus.textContent='⚠️ '+error.message;
  }
 }
 document.addEventListener('DOMContentLoaded',authenticateTelegram);
@@ -124,5 +133,35 @@ async function copyReferral(){
  try{await navigator.clipboard.writeText(field.value);message.textContent='¡Enlace copiado! Ya puedes compartirlo.';}
  catch(e){field.select();message.textContent='Mantén pulsado el enlace para copiarlo.';}
 }
+
+const NOVA_API='https://xoxtzurjygichokgjxci.supabase.co/functions/v1/nova-dashboard';
+async function novaRequest(payload){
+ const tg=window.Telegram&&window.Telegram.WebApp;
+ if(!tg||!tg.initData)throw new Error('Abre la Mini App desde el bot de Telegram.');
+ const r=await fetch(NOVA_API,{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_LPkahkwEGpkXoe0Fbvj4ig_Vvp0Ji5B'},body:JSON.stringify({...payload,initData:tg.initData})});
+ const data=await r.json();if(!r.ok||!data.ok)throw new Error(data.error||'No se pudo completar la operación.');return data;
+}
+function safeText(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+async function loadDashboard(){
+ if(!window.novaVerifiedProfile)return;
+ const hist=document.getElementById('points-history'),list=document.getElementById('support-list');
+ try{
+  const d=await novaRequest({action:'dashboard'});
+  ['home-points','balance-total'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=Number(d.points||0).toLocaleString('es-ES')+' pts';});
+  const weekly=document.getElementById('balance-weekly');if(weekly)weekly.textContent=Number(d.weekly_points||0).toLocaleString('es-ES')+' pts';
+  const hw=document.getElementById('home-weekly');if(hw)hw.textContent=Number(d.weekly_points||0).toLocaleString('es-ES');
+  const hr=document.getElementById('home-referrals');if(hr)hr.textContent=Number(d.referrals?.active||0);
+  if(hist)hist.innerHTML=d.history?.length?d.history.map(x=>'<div class="item"><div><strong>'+safeText(x.reason)+'</strong><div class="muted">'+new Date(x.created_at).toLocaleDateString('es-ES')+'</div></div><span class="reward">'+(x.points>0?'+':'')+safeText(x.points)+' pts</span></div>').join(''):'Todavía no tienes movimientos de puntos.';
+  if(list)list.innerHTML=d.tickets?.length?d.tickets.map(x=>'<div class="item"><div><strong>#'+safeText(x.id)+' · '+safeText(x.subject)+'</strong><div class="muted">'+new Date(x.created_at).toLocaleDateString('es-ES')+'</div></div><span class="tag">'+safeText(x.status)+'</span></div>').join(''):'Aún no tienes solicitudes de soporte.';
+ }catch(e){if(hist)hist.textContent=e.message;if(list)list.textContent=e.message;}
+}
+async function submitSupport(event){
+ event.preventDefault();const btn=document.getElementById('support-submit'),feedback=document.getElementById('support-feedback');
+ btn.disabled=true;btn.textContent='Enviando…';feedback.textContent='';
+ try{const d=await novaRequest({action:'support',subject:document.getElementById('support-subject').value,message:document.getElementById('support-message').value});
+ feedback.textContent='Solicitud #'+(d.ticket?.id||'registrada')+' enviada correctamente.';document.getElementById('support-form').reset();await loadDashboard();
+ }catch(e){feedback.textContent=e.message;}finally{btn.disabled=false;btn.textContent='Enviar solicitud';}
+}
+
 </script>
 </body></html>
