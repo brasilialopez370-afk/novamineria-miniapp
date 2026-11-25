@@ -24,6 +24,16 @@ nav button{background:transparent;color:#b5c4b8;padding:8px 5px;font-size:12px;l
 .mining-photo{width:100%;height:145px;object-fit:cover;border-radius:14px;border:1px solid #355342;margin:5px 0 13px;display:block}
 .tag{display:inline-block;border:1px solid #56704f;color:#c8d7bd;border-radius:30px;padding:6px 10px;font-size:10px;letter-spacing:1px}
 @media(min-width:600px){.hero{min-height:250px}.hero h1{font-size:31px}}
+
+.rank-period{display:flex;justify-content:space-between;align-items:center;color:var(--gold);font-size:10px;font-weight:900;letter-spacing:1.5px;margin:18px 2px 12px}
+.podium{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:8px;align-items:end;margin:0 0 16px}
+.podium-card{min-width:0;text-align:center;padding:15px 7px 13px;border:1px solid #355342;border-radius:15px;background:linear-gradient(160deg,#1a3025,#0e1d16);position:relative}
+.podium-card.first{padding-top:23px;padding-bottom:20px;border-color:#b9954e;background:linear-gradient(160deg,#3a3020,#17251b);box-shadow:0 8px 24px #0004}
+.podium-card.second{min-height:174px}.podium-card.third{min-height:164px}.podium-card.first{min-height:194px}
+.podium-medal{font-size:23px;margin-bottom:7px}.rank-avatar{width:42px;height:42px;border-radius:50%;margin:0 auto 9px;display:grid;place-items:center;background:#263d30;border:1px solid #8b7547;color:var(--gold);font-size:18px;font-weight:900}
+.podium-card.first .rank-avatar{width:50px;height:50px;font-size:21px;background:#4a3a20}
+.podium-card strong{font-size:11px;display:block}.rank-name{font-size:10px;color:var(--muted);margin-top:5px;overflow-wrap:anywhere}.rank-score{font-size:18px;color:var(--gold);font-weight:900;margin-top:8px}.rank-score small{font-size:10px}
+.rank-list-card{padding:15px}.rank-list-heading{display:flex;justify-content:space-between;gap:8px;align-items:center;padding-bottom:11px;border-bottom:1px solid var(--line);font-size:10px;letter-spacing:1px}.rank-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.rank-row:last-child{border:0}.rank-number{font-size:14px;font-weight:900;color:var(--gold);width:25px}.rank-user{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}.rank-user strong{font-size:12px}.rank-user small{font-size:10px;color:var(--muted)}.rank-points{font-size:12px;font-weight:800;color:var(--gold);white-space:nowrap}.rank-info{border-color:#4a5941}.rank-info strong{font-size:13px}
 </style>
 </head>
 <body>
@@ -38,7 +48,26 @@ nav button{background:transparent;color:#b5c4b8;padding:8px 5px;font-size:12px;l
 <div class="item"><div><strong>Participa en la comunidad</strong><div class="muted">Mantente activo en el canal.</div></div><span class="reward">+20 pts</span></div>
 <div class="item"><div><strong>Invita un cliente real</strong><div class="muted">Actividad sujeta a verificación.</div></div><span class="reward">Por verificar</span></div></div><p class="muted">Misiones demostrativas. Los puntos reales se habilitarán al conectar el sistema.</p></section>
 <section id="referidos" class="section"><h2>👥 Mis referidos</h2><div class="card"><div class="points">0</div><div class="muted">Referidos activos</div><p class="muted">Invita personas que participen, compren o revendan servicios. No premiamos registros falsos.</p><button onclick="generateReferral()">🔗 Generar mi enlace</button><div id="referral-result" style="display:none;margin-top:14px"><div class="muted" style="margin-bottom:7px">TU ENLACE PERSONAL</div><input id="referral-link" readonly style="width:100%;padding:12px;border-radius:10px;border:1px solid #45634e;background:#07120f;color:#f2f4ed;font-size:12px" value=""><button style="margin-top:10px;width:100%" onclick="copyReferral()">Copiar enlace</button></div><p id="referral-message" class="muted" style="margin-top:12px"></p></div></section>
-<section id="ranking" class="section"><h2>🏆 Ranking semanal</h2><div class="card"><div class="item"><strong>🥇 Primer puesto</strong><span class="reward">Pendiente</span></div><div class="item"><strong>🥈 Segundo puesto</strong><span class="reward">Pendiente</span></div><div class="item"><strong>🥉 Tercer puesto</strong><span class="reward">Pendiente</span></div><p class="muted">Clasificación según actividad real y referidos activos.</p></div></section>
+<section id="ranking" class="section">
+<h2>🏆 Ranking semanal</h2>
+<p class="muted">Los 10 usuarios con mayor actividad verificada de la semana.</p>
+<div class="rank-period"><span>SEMANA EN CURSO</span><span class="tag">TOP 10</span></div>
+<div class="podium">
+<div class="podium-card second"><div class="podium-medal">🥈</div><div class="rank-avatar">2</div><strong>2.º puesto</strong><div class="rank-name">Por definir</div><div class="rank-score">— <small>pts</small></div></div>
+<div class="podium-card first"><div class="podium-medal">👑</div><div class="rank-avatar">1</div><strong>1.er puesto</strong><div class="rank-name">Por definir</div><div class="rank-score">— <small>pts</small></div></div>
+<div class="podium-card third"><div class="podium-medal">🥉</div><div class="rank-avatar">3</div><strong>3.er puesto</strong><div class="rank-name">Por definir</div><div class="rank-score">— <small>pts</small></div></div>
+</div>
+<div class="card rank-list-card"><div class="rank-list-heading"><strong>CLASIFICACIÓN GENERAL</strong><span class="muted">Puestos 4 al 10</span></div>
+<div class="rank-row"><span class="rank-number">04</span><div class="rank-user"><strong>4.º puesto</strong><small>Esperando actividad</small></div><span class="rank-points">— pts</span></div>
+<div class="rank-row"><span class="rank-number">05</span><div class="rank-user"><strong>5.º puesto</strong><small>Esperando actividad</small></div><span class="rank-points">— pts</span></div>
+<div class="rank-row"><span class="rank-number">06</span><div class="rank-user"><strong>6.º puesto</strong><small>Esperando actividad</small></div><span class="rank-points">— pts</span></div>
+<div class="rank-row"><span class="rank-number">07</span><div class="rank-user"><strong>7.º puesto</strong><small>Esperando actividad</small></div><span class="rank-points">— pts</span></div>
+<div class="rank-row"><span class="rank-number">08</span><div class="rank-user"><strong>8.º puesto</strong><small>Esperando actividad</small></div><span class="rank-points">— pts</span></div>
+<div class="rank-row"><span class="rank-number">09</span><div class="rank-user"><strong>9.º puesto</strong><small>Esperando actividad</small></div><span class="rank-points">— pts</span></div>
+<div class="rank-row"><span class="rank-number">10</span><div class="rank-user"><strong>10.º puesto</strong><small>Esperando actividad</small></div><span class="rank-points">— pts</span></div>
+</div>
+<div class="card rank-info"><strong>¿Cómo se ordena el ranking?</strong><p class="muted">La clasificación se calcula con los puntos obtenidos por misiones completadas, referidos activos, compras confirmadas y actividad de reventa validada. Solo cuentan acciones verificadas.</p><p class="muted">El ranking se renueva cada semana. Los puntos históricos de tu cuenta se conservan; la clasificación semanal cuenta únicamente los puntos de la semana actual.</p></div>
+</section>
 <section id="recompensas" class="section"><h2>🎁 Recompensas</h2><div class="card"><p>Premios para los usuarios más activos.</p><p class="muted">Premios para los primeros puestos y sorteos entre participantes activos, según el fondo disponible.</p></div></section>
 <section id="perfil" class="section"><h2>👤 Mi perfil</h2><div class="card"><p><strong>Usuario de Telegram</strong></p><p class="muted">Tu información aparecerá cuando conectemos el bot.</p><p><strong>Estado:</strong> <span class="reward">Demostración</span></p></div></section>
 </main>
