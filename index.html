@@ -233,6 +233,30 @@ nav button.active{border-color:transparent!important;background:transparent!impo
  .menu button>span:nth-child(2) small{font-size:9px!important}
 }
 
+
+/* Portada de inicio: formato panorámico y ancho completo */
+.global-cover{
+  display:block!important;
+  width:100vw!important;
+  max-width:none!important;
+  height:clamp(190px,42vw,360px)!important;
+  min-height:0!important;
+  aspect-ratio:unset!important;
+  object-fit:cover!important;
+  object-position:center 58%!important;
+  margin-left:calc(50% - 50vw)!important;
+  margin-right:calc(50% - 50vw)!important;
+  border:0!important;
+  border-bottom:2px solid #d8a72b!important;
+  box-shadow:0 8px 26px #000b!important;
+}
+@media(max-width:600px){
+  .global-cover{
+    height:clamp(190px,49vw,270px)!important;
+    object-position:center 58%!important;
+  }
+}
+
 </style>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
