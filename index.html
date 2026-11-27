@@ -448,6 +448,65 @@ main{background:transparent!important}
  background:linear-gradient(145deg,#17140e,#0d0d0d)!important;
  border:1px solid #554018!important;
 }
+
+/* NOVA EXACT REFERENCE PALETTE: colores de la imagen original */
+#inicio .welcome-strip{
+ background:linear-gradient(110deg,#15110a,#27200e 55%,#100d08)!important;
+ border:1px solid #bd8a16!important;
+ box-shadow:0 0 17px #b77d1b2b!important;
+}
+#inicio .welcome-star{
+ background:#16120a!important;border:1px solid #7b5a16!important;
+}
+#inicio .welcome-copy span{color:#ffd13e!important}
+#inicio .points-pill{
+ background:linear-gradient(145deg,#ffe15a,#f6a900)!important;
+ color:#161006!important;border:1px solid #fff0a5!important;
+ box-shadow:0 0 16px #ffb90066!important;
+}
+#inicio .menu button{
+ color:#fff!important;border:1px solid!important;
+ box-shadow:inset 0 0 18px #0759bf38,0 5px 16px #0008!important;
+}
+#inicio .menu button:nth-child(1){
+ background:linear-gradient(140deg,#101b36,#071020)!important;border-color:#087eff!important;
+}
+#inicio .menu button:nth-child(2){
+ background:linear-gradient(140deg,#063b27,#071b13)!important;border-color:#16d879!important;
+}
+#inicio .menu button:nth-child(3){
+ background:linear-gradient(140deg,#49310a,#1b1407)!important;border-color:#ffbd27!important;
+}
+#inicio .menu button:nth-child(4){
+ background:linear-gradient(140deg,#35104d,#180923)!important;border-color:#d044ff!important;
+}
+#inicio .menu button:nth-child(5){
+ background:linear-gradient(140deg,#153b12,#091c08)!important;border-color:#74dc27!important;
+}
+#inicio .menu button:nth-child(6){
+ background:linear-gradient(140deg,#06374b,#061923)!important;border-color:#06c9f5!important;
+}
+#inicio .menu button .tile-icon{
+ background:rgba(255,255,255,.07)!important;
+ border:1px solid rgba(255,255,255,.18)!important;
+ color:#fff!important;
+}
+#inicio .menu button .tile-icon svg{stroke:currentColor!important}
+#inicio .referral-banner{
+ background:linear-gradient(110deg,#211604,#0d0b07 60%,#241706)!important;
+ border:2px solid #f5bd25!important;
+ box-shadow:0 0 20px #f0b51e40!important;
+}
+#inicio .referral-banner button{
+ background:linear-gradient(135deg,#ffe052,#f5a900)!important;
+ color:#160f02!important;border:0!important;
+}
+#inicio>.card{
+ background:linear-gradient(145deg,#17140e,#0d0d0d)!important;
+ border:1px solid #554018!important;
+}
+#inicio .stat{background:#14120c!important;border-color:#57431b!important}
+#inicio .stat strong,#inicio .points,#inicio .reward{color:#ffcc35!important}
 </style>
 <main>
 <section id="inicio" class="section active"><div class="welcome-strip"><div class="welcome-left"><div class="welcome-star">⭐</div><div class="welcome-copy">Bienvenido a <span style="color:#ffd13e">NovaMinería</span><small>Juntos hacia nuevas oportunidades 🚀</small></div></div><div class="points-pill" id="home-points">—<small>Novapoints</small></div></div><div class="menu"><button onclick="show('misiones')"><span class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h10a2 2 0 0 1 2 2v12H8a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z"/><path d="M8 5v14M11 9h6M11 13h6"/></svg></span><span>Misiones<small style="display:block;font-size:11px;font-weight:500;color:#d0d8e7;margin-top:5px">Completa tareas y gana puntos</small></span></button><button onclick="show('referidos')"><span class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19v-1.5A4.5 4.5 0 0 1 8 13h2a4.5 4.5 0 0 1 4.5 4.5V19ZM16 5.5a3 3 0 0 1 0 5.8M17 14h1a3 3 0 0 1 3 3v2"/></svg></span><span>Referidos<small style="display:block;font-size:11px;font-weight:500;color:#d1e8d9;margin-top:5px">Invita amigos y gana más</small></span></button><button onclick="show('ranking')"><span class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v4a4 4 0 0 1-8 0V4ZM8 6H4v2a4 4 0 0 0 4 4M16 6h4v2a4 4 0 0 1-4 4M12 12v5M8 20h8M10 17h4"/></svg></span><span>Ranking<small style="display:block;font-size:11px;font-weight:500;color:#eee0c0;margin-top:5px">Los más activos</small></span></button><button onclick="show('recompensas')"><span class="tile-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7H8.5a2.5 2.5 0 1 1 2.5-2.5V7ZM12 7h3.5A2.5 2.5 0 1 0 13 4.5V7Z"/></svg></span><span>Recompensas<small style="display:block;font-size:11px;font-weight:500;color:#eed8f4;margin-top:5px">Premios y sorteos</small></span></button><button onclick="show('perfil')"><span>🪙</span><span>Mi Perfil<small style="display:block;font-size:11px;font-weight:500;color:#d5e8cc;margin-top:5px">Tu información</small></span></button><button onclick="show('soporte')"><span>🎧</span><span>Soporte<small style="display:block;font-size:11px;font-weight:500;color:#cceaf0;margin-top:5px">¿Necesitas ayuda?</small></span></button></div><div class="referral-banner"><div class="gift">🎁</div><div class="ref-copy">🔗 <strong>Generar mi enlace</strong><small>Comparte tu enlace y gana Novapoints</small></div><button onclick="show('referidos');generateReferral()">Crear enlace ›</button></div><div class="card"><div class="muted">TU ACTIVIDAD</div><div class="stats"><div class="stat"><div class="muted">Referidos activos</div><strong id="home-referrals">—</strong></div><div class="stat"><div class="muted">Novapoints esta semana</div><strong id="home-weekly">—</strong></div></div></div><div class="card"><div id="telegram-home-status" class="muted">🔐 Abre NovaMinería desde Telegram para verificar tu cuenta.</div></div></section><section id="saldo" class="section"><h2>💰 Mi saldo de NovaPoints</h2><div class="card"><div class="muted">SALDO TOTAL DE NOVAPOINTS</div><div class="points" id="balance-total">— NP</div><div class="muted">NovaPoints de la semana: <strong id="balance-weekly">—</strong></div></div><div class="card"><h3>Movimientos de NovaPoints</h3><div id="points-history" class="muted">Cargando movimientos…</div></div><button onclick="loadDashboard()">↻ Actualizar saldo</button></section>
