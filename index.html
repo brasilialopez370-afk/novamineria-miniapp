@@ -105,12 +105,68 @@ nav{width:100%;max-width:760px}
  .welcome-copy{font-size:13px}
  .points-pill{font-size:16px;padding:7px 8px}
 }
+
+/* NOVA MINERIA - ajuste final responsive */
+.topbar,.top-brand,.telegram-mark,.top-actions{display:none!important}
+body{margin:0!important;background:#050505!important;color:#fff!important}
+.global-cover{
+ display:block!important;width:100%!important;max-width:none!important;
+ height:auto!important;min-height:0!important;aspect-ratio:16/8!important;
+ object-fit:cover!important;object-position:center!important;
+ margin:0!important;border:0!important;border-bottom:2px solid #d8a72b!important;
+ filter:none!important;opacity:1!important;mix-blend-mode:normal!important;
+ box-shadow:none!important
+}
+main{box-sizing:border-box!important;width:100%!important;max-width:760px!important;margin:0 auto!important;padding:14px 16px 122px!important}
+.welcome-strip{box-sizing:border-box!important;width:100%!important;min-height:88px!important;margin:0 0 14px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important}
+.welcome-left{display:flex!important;align-items:center!important;gap:10px!important;min-width:0!important}
+.welcome-copy{min-width:0!important;line-height:1.2!important}
+.points-pill{flex:0 0 auto!important}
+.menu{box-sizing:border-box!important;width:100%!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-auto-rows:112px!important;gap:11px!important;margin:14px 0 18px!important;align-items:stretch!important}
+.menu button{
+ box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:none!important;
+ height:112px!important;min-height:112px!important;max-height:112px!important;
+ margin:0!important;padding:10px 22px 10px 9px!important;
+ display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;
+ gap:7px!important;overflow:hidden!important;border-radius:17px!important;
+ font-size:14px!important;line-height:1.12!important;text-align:left!important
+}
+.menu button>span:first-child{
+ display:grid!important;place-items:center!important;flex:0 0 31px!important;
+ width:31px!important;max-width:31px!important;margin:0!important;
+ font-size:26px!important;line-height:1!important
+}
+.menu button>span:nth-child(2){
+ display:block!important;flex:1 1 0!important;min-width:0!important;
+ margin:0!important;font-size:14px!important;line-height:1.12!important;
+ overflow-wrap:anywhere!important
+}
+.menu button>span:nth-child(2) small{
+ display:block!important;margin-top:6px!important;font-size:10px!important;
+ line-height:1.25!important;font-weight:500!important
+}
+.menu button:after{right:7px!important;font-size:21px!important}
+.referral-banner{box-sizing:border-box!important;width:100%!important;margin:16px 0 22px!important}
+nav{
+ position:fixed!important;left:0!important;right:0!important;bottom:0!important;
+ transform:none!important;width:100%!important;max-width:760px!important;
+ margin:0 auto!important;z-index:1000!important
+}
+@media(min-width:600px){
+ main{padding-left:20px!important;padding-right:20px!important}
+ .menu{grid-auto-rows:124px!important;gap:14px!important}
+ .menu button{height:124px!important;min-height:124px!important;max-height:124px!important;padding:14px 28px 14px 14px!important}
+ .menu button>span:first-child{flex-basis:40px!important;width:40px!important;font-size:32px!important}
+ .menu button>span:nth-child(2){font-size:16px!important}
+ .menu button>span:nth-child(2) small{font-size:12px!important}
+}
+
 </style>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 <header><div class="logo">✦ NOVAMINERÍA</div><div class="sub">TU ACTIVIDAD ABRE NUEVAS OPORTUNIDADES</div></header>
-<div class="topbar"><div class="top-brand"><span class="telegram-mark">➤</span><span id="top-username">@exe_nova</span></div><div class="top-actions"><button onclick="show('soporte')" aria-label="Notificaciones">♧</button><button onclick="show('perfil')" aria-label="Configuración">⚙</button></div></div><img class="global-cover" src="./nova-cover.jpg" alt="Portada NovaMinería: minero con casco dorado, monedas Bitcoin y tecnología de minería" loading="eager" fetchpriority="high" decoding="async">
+<img class="global-cover" src="./nova-cover.jpg" alt="Portada NovaMinería: minero con casco dorado, monedas Bitcoin y tecnología de minería" loading="eager" fetchpriority="high" decoding="async">
 <main>
 <section id="inicio" class="section active"><div class="welcome-strip"><div class="welcome-left"><div class="welcome-star">⭐</div><div class="welcome-copy">Bienvenido a <span style="color:#ffd13e">NovaMinería</span><small>Juntos hacia nuevas oportunidades 🚀</small></div></div><div class="points-pill" id="home-points">—<small>Novapoints</small></div></div><div class="menu"><button onclick="show('misiones')"><span>📋</span><span>Misiones<small style="display:block;font-size:11px;font-weight:500;color:#d0d8e7;margin-top:5px">Completa tareas y gana puntos</small></span></button><button onclick="show('referidos')"><span>👥</span><span>Referidos<small style="display:block;font-size:11px;font-weight:500;color:#d1e8d9;margin-top:5px">Invita amigos y gana más</small></span></button><button onclick="show('ranking')"><span>🏆</span><span>Ranking<small style="display:block;font-size:11px;font-weight:500;color:#eee0c0;margin-top:5px">Los más activos</small></span></button><button onclick="show('recompensas')"><span>🎁</span><span>Recompensas<small style="display:block;font-size:11px;font-weight:500;color:#eed8f4;margin-top:5px">Premios y sorteos</small></span></button><button onclick="show('perfil')"><span>🪙</span><span>Mi Perfil<small style="display:block;font-size:11px;font-weight:500;color:#d5e8cc;margin-top:5px">Tu información</small></span></button><button onclick="show('soporte')"><span>🎧</span><span>Soporte<small style="display:block;font-size:11px;font-weight:500;color:#cceaf0;margin-top:5px">¿Necesitas ayuda?</small></span></button></div><div class="referral-banner"><div class="gift">🎁</div><div class="ref-copy">🔗 <strong>Generar mi enlace</strong><small>Comparte tu enlace y gana Novapoints</small></div><button onclick="show('referidos');generateReferral()">Crear enlace ›</button></div><div class="card"><div class="muted">TU ACTIVIDAD</div><div class="stats"><div class="stat"><div class="muted">Referidos activos</div><strong id="home-referrals">—</strong></div><div class="stat"><div class="muted">Novapoints esta semana</div><strong id="home-weekly">—</strong></div></div></div><div class="card"><div id="telegram-home-status" class="muted">🔐 Abre NovaMinería desde Telegram para verificar tu cuenta.</div></div></section><section id="saldo" class="section"><h2>💰 Mi saldo de NovaPoints</h2><div class="card"><div class="muted">SALDO TOTAL DE NOVAPOINTS</div><div class="points" id="balance-total">— NP</div><div class="muted">NovaPoints de la semana: <strong id="balance-weekly">—</strong></div></div><div class="card"><h3>Movimientos de NovaPoints</h3><div id="points-history" class="muted">Cargando movimientos…</div></div><button onclick="loadDashboard()">↻ Actualizar saldo</button></section>
 <section id="soporte" class="section"><h2>🛟 Centro de soporte</h2><div class="card"><p class="muted">Cuéntanos qué problema tienes. Tu solicitud quedará registrada para seguimiento.</p><form id="support-form" onsubmit="submitSupport(event)"><label class="muted" for="support-subject">Asunto</label><input id="support-subject" maxlength="100" minlength="3" required placeholder="Ej. Problema con una misión" style="width:100%;padding:13px;margin:7px 0 14px;border-radius:10px;border:1px solid #45634e;background:#07120f;color:#fff"><label class="muted" for="support-message">Mensaje</label><textarea id="support-message" required minlength="10" maxlength="2000" rows="5" placeholder="Describe lo que ocurrió…" style="width:100%;padding:13px;margin:7px 0 14px;border-radius:10px;border:1px solid #45634e;background:#07120f;color:#fff;resize:vertical"></textarea><button id="support-submit" type="submit">Enviar solicitud</button></form><p id="support-feedback" class="muted" role="status"></p></div><div class="card"><h3>Mis solicitudes</h3><div id="support-list" class="muted">Aún no hay solicitudes.</div></div></section>
