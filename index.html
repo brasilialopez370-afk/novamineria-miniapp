@@ -292,6 +292,35 @@ body>.global-cover{
   }
 }
 
+
+/* ALINEACION HORIZONTAL: bienvenida y seis botones comparten los mismos bordes */
+#inicio .welcome-strip,
+#inicio .menu,
+#inicio .referral-banner{
+  width:calc(100% - 24px)!important;
+  max-width:none!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  box-sizing:border-box!important;
+}
+#inicio .menu{
+  padding-left:0!important;
+  padding-right:0!important;
+  gap:8px!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+}
+#inicio .menu button{
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  box-sizing:border-box!important;
+}
+@media(min-width:600px){
+  #inicio .welcome-strip,
+  #inicio .menu,
+  #inicio .referral-banner{width:calc(100% - 40px)!important}
+}
+
 </style>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
