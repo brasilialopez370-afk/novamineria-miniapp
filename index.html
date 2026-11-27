@@ -832,4 +832,33 @@ body.nova-inside-section>main{padding-top:18px!important}
 body.nova-inside-section main>.section.active{min-height:calc(100vh - 112px);animation:novaSectionEnter .22s ease-out}
 @keyframes novaSectionEnter{from{opacity:.55;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 </style>
+
+<style id="nova-home-horizontal-alignment-final">
+/* Mismo ancho exterior para bienvenida, cuadrícula de seis botones y banner inferior */
+#inicio > .welcome-strip,
+#inicio > .menu,
+#inicio > .referral-banner{
+  width:calc(100% - 28px)!important;
+  max-width:720px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  box-sizing:border-box!important;
+}
+#inicio > .menu{
+  padding-left:0!important;
+  padding-right:0!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+}
+#inicio > .menu > button{
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  box-sizing:border-box!important;
+}
+@media(min-width:600px){
+ #inicio > .welcome-strip,
+ #inicio > .menu,
+ #inicio > .referral-banner{width:calc(100% - 40px)!important}
+}
+</style>
 </body></html>
