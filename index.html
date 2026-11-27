@@ -639,7 +639,23 @@ main{background:transparent!important}
 </nav>
 <div class="notice">NOVAMINERÍA · CUENTA VINCULADA A TELEGRAM<br>Los NovaPoints y sus movimientos se muestran cuando existen registros verificados. No se procesan pagos dentro de esta Mini App.</div>
 <script>
-function show(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');if(id==='saldo'||id==='soporte')loadDashboard()}
+function show(id,btn){
+ document.querySelectorAll('.section').forEach(section=>section.classList.remove('active'));
+ const target=document.getElementById(id);
+ if(!target)return;
+ target.classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ if(btn)btn.classList.add('active');
+ if(id!=='inicio'&&!target.querySelector('.section-back')){
+  const back=document.createElement('button');
+  back.type='button';back.className='section-back';
+  back.setAttribute('aria-label','Volver al inicio');
+  back.innerHTML='<span class="back-arrow" aria-hidden="true">‹</span><span>Volver</span>';
+  back.addEventListener('click',()=>show('inicio',document.querySelector('nav button[aria-label="Inicio"]')));
+  target.insertBefore(back,target.firstChild);
+ }
+ if(id==='saldo'||id==='soporte')loadDashboard();
+}
 function generateReferral(){
  const message=document.getElementById('referral-message');
  const profile=window.novaVerifiedProfile;
@@ -782,5 +798,20 @@ async function submitSupport(event){
  border-radius:17px!important;
  overflow:hidden!important;
 }
+</style>
+
+<style id="nova-section-back-button">
+/* Botón de regreso consistente en todas las secciones internas */
+.section-back{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ gap:8px!important;min-height:42px!important;margin:2px 0 14px!important;padding:7px 16px 7px 10px!important;
+ border:1px solid rgba(255,204,55,.58)!important;border-radius:14px!important;
+ background:linear-gradient(145deg,#211a0b,#0e0d09)!important;color:#ffd34d!important;
+ box-shadow:inset 0 1px 0 #ffffff12,0 5px 15px #0008!important;
+ font-size:13px!important;font-weight:850!important;letter-spacing:.2px!important;
+ cursor:pointer!important;transition:transform .16s ease,box-shadow .16s ease!important;
+}
+.section-back:active{transform:scale(.96)!important;box-shadow:0 2px 8px #0008!important}
+.section-back .back-arrow{display:grid;place-items:center;width:25px;height:25px;border-radius:9px;background:rgba(255,204,55,.13);border:1px solid rgba(255,204,55,.28);font-size:25px;line-height:18px;font-weight:500}
 </style>
 </body></html>
