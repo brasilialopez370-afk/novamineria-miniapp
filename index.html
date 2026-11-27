@@ -644,6 +644,8 @@ function show(id,btn){
  const target=document.getElementById(id);
  if(!target)return;
  target.classList.add('active');
+ document.body.classList.toggle('nova-inside-section',id!=='inicio');
+ window.scrollTo({top:0,behavior:'smooth'});
  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
  if(btn)btn.classList.add('active');
  if(id!=='inicio'&&!target.querySelector('.section-back')){
@@ -813,5 +815,13 @@ async function submitSupport(event){
 }
 .section-back:active{transform:scale(.96)!important;box-shadow:0 2px 8px #0008!important}
 .section-back .back-arrow{display:grid;place-items:center;width:25px;height:25px;border-radius:9px;background:rgba(255,204,55,.13);border:1px solid rgba(255,204,55,.28);font-size:25px;line-height:18px;font-weight:500}
+</style>
+
+<style id="nova-full-section-view">
+/* Cada sección interna funciona como una pantalla independiente */
+body.nova-inside-section>img.global-cover{display:none!important}
+body.nova-inside-section>main{padding-top:18px!important}
+body.nova-inside-section main>.section.active{min-height:calc(100vh - 112px);animation:novaSectionEnter .22s ease-out}
+@keyframes novaSectionEnter{from{opacity:.55;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </body></html>
