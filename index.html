@@ -644,7 +644,15 @@ function show(id,btn){
  const target=document.getElementById(id);
  if(!target)return;
  target.classList.add('active');
- document.body.classList.toggle('nova-inside-section',id!=='inicio');
+ const insideSection=id!=='inicio';
+ document.body.classList.toggle('nova-inside-section',insideSection);
+ const cover=document.querySelector('body > img.global-cover');
+ if(cover){
+  cover.style.setProperty('display',insideSection?'none':'block','important');
+  cover.setAttribute('aria-hidden',insideSection?'true':'false');
+ }
+ const footerNotice=document.querySelector('body > .notice');
+ if(footerNotice)footerNotice.style.setProperty('display',insideSection?'none':'block','important');
  window.scrollTo({top:0,behavior:'smooth'});
  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
  if(btn)btn.classList.add('active');
